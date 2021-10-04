@@ -1,0 +1,24 @@
+//tells the compiler which version of the proto file version to use
+syntax = "proto3";
+
+//generated c# classes will have this namespace.
+option csharp_namespace = "DemogRPC.Protos";
+
+
+package helloworld;
+
+//maps to the controller
+service DemoGrpcService{
+	//action inside the controller
+	rpc demomessage(HelloRequest) returns (HelloResponse);
+}
+
+
+message HelloRequest{
+	string name=1;
+}
+
+message HelloResponse{
+	string name=1;
+	int32   iteration=2;
+}
