@@ -1,0 +1,2 @@
+﻿1. add service reference and select the proto file in the productgrpc project. This will install the 
+required packages and generate the client code. 

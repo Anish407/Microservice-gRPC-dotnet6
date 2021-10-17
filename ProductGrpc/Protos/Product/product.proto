@@ -1,0 +1,76 @@
+syntax = "proto3";
+
+option csharp_namespace = "ProductGrpc.Protos.Product";
+
+// To use date time we need to import the following file
+import "google/protobuf/timestamp.proto";
+
+// to use the void type 
+import "google/protobuf/empty.proto";
+
+//1. once proto file is created, right click and change the compiler to protobuf compiler and the stub class to 
+// server only as this service will be used inside the server. To confirm check the csproj
+
+//2. build the project to generate the c# classes. click on show all files -> obj-> net (version) -> protos to view the generated classes
+
+// 3. register the service in  program.cs or startup.cs (based on .net version)
+
+service ProductProtoService{
+	 rpc GetProduct (GetProductRequest) returns (ProductModel);
+
+	 //server stream
+	 rpc GetAllProducts (GetAllProductsRequest) returns (stream ProductModel);
+
+	 rpc AddProduct (AddProductRequest) returns (ProductModel);
+	 rpc UpdateProduct (UpdateProductRequest) returns (ProductModel);
+	 rpc DeleteProduct (DeleteProductRequest) returns (DeleteProductResponse);
+
+	 //Client stream
+	 rpc InsertBulkProduct (stream ProductModel) returns (InsertBulkProductResponse);
+
+	 //method that returns void
+	 rpc Test (google.protobuf.Empty) returns (google.protobuf.Empty);
+}
+
+message GetProductRequest {
+  int32 productId = 1;
+}
+
+message GetAllProductsRequest{
+}
+
+message AddProductRequest {
+  ProductModel product = 1;
+}
+
+message UpdateProductRequest {
+  ProductModel product = 1;
+}
+
+message DeleteProductRequest {
+  int32 productId = 1;
+}
+
+message DeleteProductResponse {
+  bool success = 1;
+}
+
+message InsertBulkProductResponse {
+  bool success = 1;
+  int32 insertCount = 2;
+}
+
+message ProductModel{
+	int32 productId = 1;
+	string name = 2;
+	string description = 3;	
+	float price = 4;
+	ProductStatus status = 5;
+	google.protobuf.Timestamp createdTime = 6;
+}
+
+enum ProductStatus {
+	INSTOCK = 0;
+	LOW = 1;
+	NONE = 2;
+}

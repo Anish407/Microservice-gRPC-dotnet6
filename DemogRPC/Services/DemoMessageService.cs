@@ -15,7 +15,7 @@ public class DemoMessageService : DemoGrpcService.DemoGrpcServiceBase
      => logger = loggerFactory.CreateLogger(nameof(DemoMessageService));
 
     //override the implementation in the base class and use any c# constructs as needed.
-    public override Task<HelloResponse> demomessage(HelloRequest request, ServerCallContext context)
+    public override  Task<HelloResponse> demomessage(HelloRequest request, ServerCallContext context)
       => Task.FromResult(new HelloResponse { Name = request.Name, Iteration = new Random().Next(1, 1000) });
 
 
