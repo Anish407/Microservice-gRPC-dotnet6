@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EcommerceWithgRPC", "Ecomme
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductGrpc", "ProductGrpc\ProductGrpc.csproj", "{0F791594-34C1-451E-9F20-61C923D5F418}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductgRPCClient", "ProductgRPCClient\ProductgRPCClient.csproj", "{DF4AF116-B004-4A4E-BB65-7458A565D4F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductgRPCClient", "ProductgRPCClient\ProductgRPCClient.csproj", "{DF4AF116-B004-4A4E-BB65-7458A565D4F2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

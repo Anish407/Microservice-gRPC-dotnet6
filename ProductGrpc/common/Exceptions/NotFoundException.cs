@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 namespace ProductGrpc.common.Exceptions;
 public class NotFoundException: Exception
 {

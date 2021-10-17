@@ -7,21 +7,29 @@
 
   <ItemGroup>
     <None Remove="Protos\Product\product.proto" />
+    <None Remove="Protos\ServerStream\data.proto" />
   </ItemGroup>
 
   <ItemGroup>
     <Protobuf Include="Protos\greet.proto" GrpcServices="Server" />
     <Protobuf Include="Protos\Product\product.proto" GrpcServices="Server" />
+    <Protobuf Include="Protos\ServerStream\data.proto" GrpcServices="Server" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Grpc.AspNetCore" Version="2.32.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.8" />
 
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.8"/>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.8" />
 
       <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.8" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Data\data.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

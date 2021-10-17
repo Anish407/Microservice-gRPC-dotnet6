@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+option csharp_namespace = "ProductGrpc.Protos.ServerStream";
+import "google/protobuf/empty.proto";
+
+
+service InfoServerStream{
+	rpc GetAllInfo(google.protobuf.Empty) returns (stream  Info);
+}
+
+message Info{
+	repeated SensorData sensorData=1;
+	string optionalNotes=2;
+	repeated Gpsdata gpsdata=3;
+    Recordinginfo recordinginfo=5;
+}
+
+message SensorData{
+	repeated float quaternion=1;
+	repeated string magneticField=2;
+	repeated float acceleration=3;
+	string dataType=4;
+	repeated float rotationRate=5;
+
+	repeated float altitudeData=7;
+}
+
+message Gpsdata{
+	 float timestamp =1;
+     float latitude =2;
+     float accuracyInMeters= 3;
+     float longitude =4;
+}
+
+message Recordinginfo{
+	 float recordingStartTime =1;
+     string os =2;
+     string manufacturer = 3;
+     float recordingEndTime= 4;
+     string osVersion =5;
+     float recordingDuration =6;
+     string recorderVersion =7;
+     repeated string uuids =8;
+     string deviceModel =9;
+}

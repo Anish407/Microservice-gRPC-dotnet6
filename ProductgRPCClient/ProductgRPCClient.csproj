@@ -7,7 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Program.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Program.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Google.Protobuf" Version="3.13.0" />
+    <PackageReference Include="Grpc.Net.Client" Version="2.40.0" />
     <PackageReference Include="Grpc.Net.ClientFactory" Version="2.32.0" />
     <PackageReference Include="Grpc.Tools" Version="2.32.0">
       <PrivateAssets>all</PrivateAssets>
@@ -18,6 +27,9 @@
   <ItemGroup>
     <Protobuf Include="..\ProductGrpc\Protos\Product\product.proto" GrpcServices="Client">
       <Link>Protos\product.proto</Link>
+    </Protobuf>
+    <Protobuf Include="..\ProductGrpc\Protos\ServerStream\data.proto" GrpcServices="Client">
+      <Link>Protos\data.proto</Link>
     </Protobuf>
   </ItemGroup>
 
